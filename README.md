@@ -11,6 +11,7 @@ Independent quantitative research on institutional holdings and market prices. O
 Each study names its data source in its own README, because the studies use different data.
 
 - Common ownership of S&P 500 firms, replicated on 13F data, and the data repair it took
+- Whether funds that amend their 13F filings show a jump in reported size
 - Hedge-fund pod disagreement from 13F filings
 - A Kalman-filter pairs trade on country ETFs
 - A tested Python package for 13F work: ownership overlap, data-quality checks and company-name matching
@@ -20,6 +21,7 @@ Currently included studies:
 | Study | Question | Data | Write-up |
 |---|---|---|---|
 | [Common Ownership](studies/common-ownership/) | How much do competing S&P 500 firms share the same owners, 2013 to 2025, and what does it take to get clean data? | QuantKiosk 13F holdings (key needed, not included) and SEC XBRL | [Report](studies/common-ownership/Common_Ownership_Analysis_Report.pdf) |
+| [13F Amendments](studies/amendment-disclosure/) | Does a fund's first 13F amendment coincide with a jump in its reported assets under management? | QuantKiosk manager-level 13F value totals (key needed, not included) | [Paper](https://souparneyac.github.io/research/strategic-disclosure/) |
 | [Intra-Firm Divergence](studies/pod-divergence/) | Do the pods inside a multi-strategy hedge fund hold opposite sides of the same stock, and what does that signal? | QuantKiosk 13F submanager holdings (D.E. Shaw sample, no key needed) | [Paper](studies/pod-divergence/Intra-Firm-Divergence-as-a-Volatility-Predictor.pdf) |
 | [Adaptive Pairs Trading](studies/adaptive-pairs-trading/) | Does a time-varying hedge ratio with a Random Forest entry gate help an EWA/EWC pairs trade through a structural break? | Yahoo Finance prices, 2020 to 2025 | [Paper](studies/adaptive-pairs-trading/paper.pdf) |
 
@@ -28,10 +30,11 @@ Currently included studies:
 | Study | Result |
 |---|---|
 | Common Ownership | Mean ownership overlap (kappa) rose from about 0.71 to about 0.92 over 48 firms and 50 quarters (112,800 values). The Big Three account for about 78% of it. The data needed eight repairs and one partial vendor gap |
+| 13F Amendments | A one-quarter jump of 1.7 percentage points in reported AUM at a fund's first amendment (p about 0.027, 81,121 fund-quarters), gone within two quarters; the average post-amendment effect is zero |
 | Intra-Firm Divergence | In D.E. Shaw's Q1 2024 filings (6,482 position rows), Celsius (CELH) showed a 20,674.8% spread between its most-buying and most-selling pod, Microchip (MCHP) 2,168.3% and Nvidia (NVDA) 56.7% |
 | Adaptive Pairs Trading | Sharpe ratio 0.36 over 72 active trading days, most of the return earned by staying out of the market during the 2024 divergence between EWA and EWC |
 
-The package tests (`pytest`) check the kappa identities, the data-quality checks and the name matcher on synthetic data. The pairs-trading result was reproduced for this repository by running `oil_copper_fitted_ML.py`, which prints a final Sharpe ratio of 0.36 and 72 trade days. The Intra-Firm Divergence tables are the paper's figures. How far each can be re-run, and where it cannot, is in the study's own README.
+The package tests (`pytest`) check the kappa identities, the data-quality checks and the name matcher on synthetic data, and that the amendment study's result tables match the numbers reported here. The pairs-trading result was reproduced for this repository by running `oil_copper_fitted_ML.py`, which prints a final Sharpe ratio of 0.36 and 72 trade days. The Intra-Firm Divergence tables are the paper's figures. How far each can be re-run, and where it cannot, is in the study's own README.
 
 ## Installation & Usage
 
@@ -67,6 +70,7 @@ then follow the usage section in [studies/pod-divergence/README.md](studies/pod-
 ├── tests/                       # unit tests on synthetic data
 ├── studies/
 │   ├── common-ownership/        # replication, results, data-quality record (Python)
+│   ├── amendment-disclosure/    # 13F amendment event study, results, figures (Python)
 │   ├── pod-divergence/          # Friction Index scanner, charts, results, paper (R)
 │   └── adaptive-pairs-trading/  # Kalman filter and Random Forest pairs trade, paper (Python)
 ├── LICENSE

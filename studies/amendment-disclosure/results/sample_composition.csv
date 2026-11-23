@@ -1,0 +1,11 @@
+metric,value
+N treated funds,4254
+N control funds,3522
+N fund-quarter obs (treated),48862
+N fund-quarter obs (control),32259
+N fund-quarter obs (total),81121
+Mean obs per treated fund,11.5
+Mean obs per control fund,9.2
+Mean dlog_value treated,0.0175
+Mean dlog_value control,0.0053
+Time period,2013Q2 to 2025Q1

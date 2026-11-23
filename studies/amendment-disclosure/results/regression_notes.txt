@@ -1,0 +1,63 @@
+============================================================
+ECON537 — TWFE Event Study Regression
+============================================================
+
+── Panel Construction ──
+  Panel rows       : 81,121
+  Treated funds    : 4,254
+  Control funds    : 3,522
+  Treated obs      : 48,862
+  Control obs      : 32,259
+
+── Step 1: Main TWFE Event Study ──
+  Saved: coefs_main.csv
+
+── Step 2: Robustness 1 — Fund-specific linear trends ──
+  Saved: coefs_with_trends.csv
+  k=0 coef — main: 0.0172  |  with trends: 0.0168
+  Spike at k=0 survives fund trends: YES
+
+── Step 3: Robustness 2 — Joint pre-trend F-test ──
+  wald_test() failed ('list' object has no attribute 'ndim'), computing manually via VCV
+  Pre-trend F-test (manual): F=1.347, p=0.2325
+  Verdict: FAIL TO REJECT — pre-trends statistically flat
+  Saved: pretrend_test.csv
+
+── Step 4: Robustness 3 — Placebo timing ──
+  k=0 coef (placebo): -0.0121  (SE=0.0125)
+  k=0 coef (main)   : 0.0172
+  Placebo verdict: CLEAN — placebo k=0 is flat (main result not spurious)
+  Saved: coefs_placebo.csv
+
+── Step 5: Goodman-Bacon Decomposition ──
+  Earlier vs. Later treated: weight=0.148, est=-0.0366
+  Later vs. Earlier treated (biased): weight=0.145, est=-0.0351
+  Treated vs. Never-treated: weight=0.707, est=-0.3547
+  Bacon weight on potentially-biased comparisons (later vs. earlier): 14.5%
+  Saved: bacon_decomp.csv, bacon_decomp_summary.csv
+
+── Step 6: Combined event-study plot ──
+  Saved: fig03_es_combined.pdf + .png
+
+── Step 7: Simple DiD ──
+  POST coef: -0.0013  SE=0.0033  p=0.6818
+  Saved: did_simple.csv
+
+── Step 8: Sample Composition ──
+  Saved: sample_composition.csv
+
+============================================================
+SUMMARY OF FINDINGS
+============================================================
+1. Spike at k=0 survives fund trends: YES
+2. Pre-trend F-test: F=1.347, p=0.2325 → FAIL TO REJECT — pre-trends statistically flat
+3. Placebo at k=0: coef=-0.0121 → CLEAN — placebo k=0 is flat (main result not spurious)
+4. Bacon: biased comparison weight = 14.5%
+5. Simple DiD POST coef: -0.0013 (p=0.6818)
+
+=== BACON DECOMP BUG FIX (rerun) ===
+Bug 1: i(treated_flag,post) in pyfixest created two partial coefficients, not one DiD term.
+Bug 2: panel_nt was event-windowed to each fund's own pseudo-treatment, causing sample mismatch.
+Fix: manual 2x2 DiD from group means using raw series restricted to ±8q window per cohort.
+Fixed Bacon weighted avg: -0.011056  |  Simple DiD: -0.001349
+Biased comparison weight: 29.1%
