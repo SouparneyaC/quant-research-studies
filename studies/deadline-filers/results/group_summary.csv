@@ -1,0 +1,3 @@
+type,n_fund_quarters,avg_lag,avg_turnover_pct,avg_value_turnover,avg_opt_pct
+deadline_hugger,24,44.9583,0.3768,0.4017,0.6114
+early_filer,16,35.6875,0.0809,0.1676,0.0

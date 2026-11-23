@@ -1,0 +1,6 @@
+fund,type,n_quarters,avg_lag,min_lag,max_lag,avg_turnover_pct,avg_opt_pct
+Baillie,early_filer,8,32.25,25,44,0.1117,0.0
+Parallax,deadline_hugger,8,45.0,45,45,0.3882,0.6608
+SIG,deadline_hugger,8,43.625,37,46,0.3474,0.4634
+Swiss,early_filer,8,39.125,37,42,0.0501,0.0
+Wolverine,deadline_hugger,8,46.25,45,54,0.3947,0.71

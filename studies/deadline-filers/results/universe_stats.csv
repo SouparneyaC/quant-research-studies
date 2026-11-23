@@ -1,0 +1,7 @@
+metric,value
+clean filings (lag 0 to 50 days),249887.0
+distinct institutions,11800.0
+share of filings at 43 days or later,0.4363
+"pearson r, filing lag vs options share",0.1205
+"mean options share, filings at 43+ days",0.0577
+"mean options share, filings before day 43",0.0189
