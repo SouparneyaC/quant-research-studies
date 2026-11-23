@@ -5,6 +5,9 @@ All notable changes are listed here, newest first. The format follows [Keep a Ch
 ## [0.1.0] - 2026-11-23
 
 ### Added
+- Common Ownership study: pipeline, 112,800-row kappa panel, data-quality and entity-resolution write-ups
+- `qk13f` package with tests: ownership overlap and its decomposition, data-quality checks, fuzzy company-name matching
+- Continuous integration: lint and tests on Python 3.11 and 3.12
 - Intra-Firm Divergence study: Friction Index scanner, butterfly charts, case-study tables and the paper
 - Adaptive Pairs Trading study: Kalman-filter hedge ratio, Random Forest entry gate, figures and the paper
 - Pinned requirements for the pairs study

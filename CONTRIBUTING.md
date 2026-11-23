@@ -6,6 +6,7 @@ Bug reports, documentation fixes and small pull requests are welcome.
 
 Each study is self-contained. Follow the usage section of the study's own README.
 
+- Package and tests: Python 3.11 or later, `pip install -e ".[dev]"`, then `ruff check .` and `pytest`
 - `studies/adaptive-pairs-trading`: Python 3.12, `pip install -r requirements.txt`
 - `studies/pod-divergence`: R, with the `qkiosk` package installed from GitHub
 
