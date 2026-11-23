@@ -9,4 +9,4 @@ version: 0.1.0
 date-released: "2026-11-23"
 license: MIT
 repository-code: "https://github.com/SouparneyaC/quant-research-studies"
-abstract: "Independent quantitative research on institutional holdings and market prices: hedge-fund pod divergence from 13F filings, and a Kalman-filter pairs trade on country ETFs."
+abstract: "Independent quantitative research on institutional holdings and market prices: common ownership of S&P 500 firms on 13F data, 13F amendments, deadline filing and turnover, a lagged-copy backtest of Citadel's 13F, hedge-fund pod divergence, and a Kalman-filter pairs trade on country ETFs, with a tested Python package for 13F work."

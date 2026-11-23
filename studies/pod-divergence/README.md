@@ -59,12 +59,14 @@ scan_hedging_opportunities(deshaw, top_n = 20, export_csv = FALSE)
 
 `scan_hedging_opportunities()` is the entry point and `calculate_hedging()` returns the scored table. `create_butterfly_chart(deshaw, "<ticker>")` draws one stock.
 
-## Notes
+## Limits
 
 - The case-study figures come from the pull used for the paper. The `deshaw` sample in the current `qkiosk` release (0.2.24) has the same 6,482 rows but different quarter-over-quarter values. On it the scanner flags AYI and GOLF and does not reproduce CELH, MCHP or NVDA. The committed tables and charts are the record of the paper's numbers.
 - The volatility link is a hypothesis. The paper reports one post-filing volatility check (NVDA). It does not test whether friction predicts volatility across stocks, and no script for that test is included.
 - This is a research signal. It is not a trading strategy and has no backtested profit and loss.
 - The 13F is filed up to 45 days after quarter end, so every signal describes a position that is already history.
+
+## Project Structure
 
 | File | What it does |
 |---|---|
@@ -72,3 +74,7 @@ scan_hedging_opportunities(deshaw, top_n = 20, export_csv = FALSE)
 | `hedging_visualizer.R` | Butterfly chart of each pod's position change for one ticker |
 | `results/` | Case-study tables for CELH, MCHP and NVDA |
 | `figures/` | The three butterfly charts |
+
+## Notes
+
+- This is not affiliated with QuantKiosk or D.E. Shaw.

@@ -42,6 +42,13 @@ The panel needed eight catalogued repairs plus one partial vendor gap. The fault
 
 The detection patterns are also in the tested package, `qk13f.quality` and `qk13f.resolve`, at the repository root.
 
+## Limits
+
+- Forty-eight large-cap firms is a convenience sample, not the S&P 500. Pairs are formed within it, so the level of kappa depends on which firms were pulled.
+- The data repairs were applied by hand to the processed tables and are listed in `results/`. The steps cannot be replayed by running one script.
+- One vendor gap is only partly recoverable: State Street holdings sat at about 72% of the expected level for two quarters, and the repair used EDGAR values where available and per-ticker interpolation elsewhere.
+- The pipeline needs a QuantKiosk key and a day or more of API calls, so the headline panel cannot be rebuilt without access. The committed panel is the record of the run.
+
 ## Usage
 
 The package and its tests need no data and no key:

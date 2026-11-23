@@ -8,7 +8,9 @@ Each study is self-contained. Follow the usage section of the study's own README
 
 - Package and tests: Python 3.11 or later, `pip install -e ".[dev]"`, then `ruff check .` and `pytest`
 - `studies/adaptive-pairs-trading`: Python 3.12, `pip install -r requirements.txt`
-- `studies/pod-divergence`: R, with the `qkiosk` package installed from GitHub
+- `studies/citadel-lag-backtest`: Python, `pip install -r requirements.txt`, then `python analysis.py`
+- `studies/amendment-disclosure`: Python, `pip install -r requirements.txt` (needs a QuantKiosk key to re-run from raw data)
+- `studies/pod-divergence`, `studies/deadline-filers`: R, with the `qkiosk` package installed from GitHub (the second needs a key to re-run)
 
 ## What fits
 

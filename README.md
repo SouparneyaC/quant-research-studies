@@ -1,33 +1,26 @@
 # Quant Research Studies
 
-Independent quantitative research on institutional holdings and market prices. One study per folder, each with its own data, code, write-up and way to reproduce it.
+Independent quantitative research on institutional holdings and market prices. One study per folder, each with its own data source, code, write-up and way to reproduce it. Several of the results are negative or confounded, and each study says so.
 
+[![CI](https://github.com/SouparneyaC/quant-research-studies/actions/workflows/ci.yml/badge.svg)](https://github.com/SouparneyaC/quant-research-studies/actions/workflows/ci.yml)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
 ![R 4.5](https://img.shields.io/badge/R-4.5-blue)
 
 ## Overview
 
-Each study names its data source in its own README, because the studies use different data.
+Six studies and one tested Python package. Most use QuantKiosk's 13F data, which needs an API key and is not redistributed here, so each study commits its derived results and says how much of it can be re-run without the key.
 
-- Common ownership of S&P 500 firms, replicated on 13F data, and the data repair it took
-- Whether funds that amend their 13F filings show a jump in reported size
-- Hedge-fund pod disagreement from 13F filings
-- Whether funds that file at the 45-day deadline trade more than early filers
-- Whether copying Citadel's 13F positions on filing day beats the market, and what the first version of that backtest got wrong
-- A Kalman-filter pairs trade on country ETFs
-- A tested Python package for 13F work: ownership overlap, data-quality checks and company-name matching
+| Study | Question | Data | Runs without a key | Write-up |
+|---|---|---|---|---|
+| [Common Ownership](studies/common-ownership/) | How much do competing S&P 500 firms share the same owners, 2013 to 2025, and what does it take to get clean data? | QuantKiosk 13F holdings and SEC XBRL | Derived results and the tested package | [Report](studies/common-ownership/Common_Ownership_Analysis_Report.pdf) |
+| [13F Amendments](studies/amendment-disclosure/) | Does a fund's first 13F amendment coincide with a jump in its reported assets under management? | QuantKiosk manager-level value totals | Committed result tables | [Paper](https://souparneyac.github.io/research/strategic-disclosure/) |
+| [Deadline Filers](studies/deadline-filers/) | Do funds that file their 13F on the last days trade more than funds that file early? | QuantKiosk position-level holdings | Turnover table and figures 1 to 3 | [README](studies/deadline-filers/README.md) |
+| [Citadel Lag Backtest](studies/citadel-lag-backtest/) | Does buying Citadel's reported long positions on the 13F due date beat SPY? | QuantKiosk holdings, Yahoo Finance prices, Fama-French factors | All of the analysis, from committed tables | [README](studies/citadel-lag-backtest/README.md) |
+| [Intra-Firm Divergence](studies/pod-divergence/) | Do the pods inside a multi-strategy hedge fund hold opposite sides of the same stock, and what does that signal? | QuantKiosk submanager holdings (D.E. Shaw sample) | The scanner, on the sample that ships with `qkiosk` | [Paper](studies/pod-divergence/Intra-Firm-Divergence-as-a-Volatility-Predictor.pdf) |
+| [Adaptive Pairs Trading](studies/adaptive-pairs-trading/) | Does a time-varying hedge ratio with a Random Forest entry gate help an EWA/EWC pairs trade through a structural break? | Yahoo Finance prices, 2020 to 2025 | Everything | [Paper](studies/adaptive-pairs-trading/paper.pdf) |
 
-Currently included studies:
-
-| Study | Question | Data | Write-up |
-|---|---|---|---|
-| [Common Ownership](studies/common-ownership/) | How much do competing S&P 500 firms share the same owners, 2013 to 2025, and what does it take to get clean data? | QuantKiosk 13F holdings (key needed, not included) and SEC XBRL | [Report](studies/common-ownership/Common_Ownership_Analysis_Report.pdf) |
-| [13F Amendments](studies/amendment-disclosure/) | Does a fund's first 13F amendment coincide with a jump in its reported assets under management? | QuantKiosk manager-level 13F value totals (key needed, not included) | [Paper](https://souparneyac.github.io/research/strategic-disclosure/) |
-| [Deadline Filers](studies/deadline-filers/) | Do funds that file their 13F on the last days trade more than funds that file early? | QuantKiosk 13F position-level holdings (key needed, not included) | [README](studies/deadline-filers/README.md) |
-| [Citadel Lag Backtest](studies/citadel-lag-backtest/) | Does buying Citadel's reported long positions on the 13F due date beat SPY? | QuantKiosk 13F holdings (key needed, not included), Yahoo Finance prices, Fama-French factors | [README](studies/citadel-lag-backtest/README.md) |
-| [Intra-Firm Divergence](studies/pod-divergence/) | Do the pods inside a multi-strategy hedge fund hold opposite sides of the same stock, and what does that signal? | QuantKiosk 13F submanager holdings (D.E. Shaw sample, no key needed) | [Paper](studies/pod-divergence/Intra-Firm-Divergence-as-a-Volatility-Predictor.pdf) |
-| [Adaptive Pairs Trading](studies/adaptive-pairs-trading/) | Does a time-varying hedge ratio with a Random Forest entry gate help an EWA/EWC pairs trade through a structural break? | Yahoo Finance prices, 2020 to 2025 | [Paper](studies/adaptive-pairs-trading/paper.pdf) |
+The package in [`src/qk13f`](src/qk13f/) holds the reusable parts: ownership overlap (kappa) and its decomposition, data-quality checks, and fuzzy company-name matching.
 
 ## Results
 
@@ -38,18 +31,31 @@ Currently included studies:
 | Deadline Filers | Three deadline filers turned over 37.7% of positions a quarter against 8.1% for two early filers (4.66 times), over 40 fund-quarters. The deadline filers are options market makers and the early filers hold no options, so the gap does not isolate the filing habit |
 | Citadel Lag Backtest | The lagged copy grew 1.040 against 1.046 for SPY over the same dates (20 quarters, p = 0.96), and the holdings show no excess return over SPY at any horizon from day 1 to day 90. The first version's headline edge came from a benchmark covering half the dates and factor data one quarter out of line |
 | Intra-Firm Divergence | In D.E. Shaw's Q1 2024 filings (6,482 position rows), Celsius (CELH) showed a 20,674.8% spread between its most-buying and most-selling pod, Microchip (MCHP) 2,168.3% and Nvidia (NVDA) 56.7% |
-| Adaptive Pairs Trading | Sharpe ratio 0.36 over 72 active trading days, most of the return earned by staying out of the market during the 2024 divergence between EWA and EWC |
+| Adaptive Pairs Trading | Sharpe ratio 0.36 over 72 active trading days, most of the return earned by staying out of the market during the 2024 divergence between EWA and EWC. The Random Forest was fitted on 80% of those days; on the last 300 days alone the Sharpe is 1.36 on 20 signal days, with or without the classifier |
 
-The package tests (`pytest`) check the kappa identities, the data-quality checks and the name matcher on synthetic data, and that the amendment, deadline-filer and Citadel studies' result tables match the numbers reported here. The pairs-trading result was reproduced for this repository by running `oil_copper_fitted_ML.py`, which prints a final Sharpe ratio of 0.36 and 72 trade days. The Intra-Firm Divergence tables are the paper's figures. How far each can be re-run, and where it cannot, is in the study's own README.
+How these were checked:
+
+- `pytest` tests the kappa identities, the data-quality checks and the name matcher on synthetic data, and that the result tables committed for the amendment, deadline-filer and Citadel studies match the numbers above.
+- The pairs-trading result was reproduced for this repository by running `oil_copper_fitted_ML.py`, which prints a final Sharpe ratio of 0.36 and 72 trade days; `holdout_check.py` splits it into training and held-out periods.
+- The Intra-Firm Divergence tables are the paper's figures. The current `qkiosk` sample does not reproduce them, which that study's README explains.
+- How far each study can be re-run, and where it cannot, is in its own README.
 
 ## Installation & Usage
 
-The package and its tests (Python 3.11 or later, no data and no key needed):
+The package and all the tests (Python 3.11 or later, no data and no key):
 
 ```bash
 python3 -m venv venv
 venv/bin/pip install -e ".[dev]"
 venv/bin/pytest
+```
+
+Citadel Lag Backtest (Python, from the committed tables):
+
+```bash
+cd studies/citadel-lag-backtest
+python3 -m pip install -r requirements.txt
+python3 analysis.py
 ```
 
 Adaptive Pairs Trading (Python 3.12, downloads prices from Yahoo Finance when it runs):
@@ -67,13 +73,13 @@ Intra-Firm Divergence (R, no API key for the sample data):
 remotes::install_github("quantkiosk/qkiosk-r")
 ```
 
-then follow the usage section in [studies/pod-divergence/README.md](studies/pod-divergence/README.md).
+then follow the usage section in [studies/pod-divergence/README.md](studies/pod-divergence/README.md). The other QuantKiosk studies re-run from the raw data only with a key (`QK_API_KEY`); their READMEs list the steps.
 
 ## Project Structure
 
 ```
 ├── src/qk13f/                   # tested package: kappa, data-quality checks, name matching
-├── tests/                       # unit tests on synthetic data
+├── tests/                       # unit tests on synthetic data and on the committed result tables
 ├── studies/
 │   ├── common-ownership/        # replication, results, data-quality record (Python)
 │   ├── amendment-disclosure/    # 13F amendment event study, results, figures (Python)
@@ -87,10 +93,10 @@ then follow the usage section in [studies/pod-divergence/README.md](studies/pod-
 
 ## Notes
 
-- No raw vendor data is stored here. The common-ownership study ships derived tables only, the Intra-Firm Divergence study reads the sample that ships with the `qkiosk` R package, and the pairs study downloads prices at run time.
+- No raw vendor data is stored here. The studies ship derived tables only, the Intra-Firm Divergence study reads the sample that ships with the `qkiosk` R package, and the pairs study downloads prices at run time.
 - The scripts in each study are the record of what was run. The package in `src/qk13f` is the tested, reusable core.
 - None of the studies is a trading recommendation.
-- This repository is not affiliated with QuantKiosk, D.E. Shaw or Yahoo.
+- This repository is not affiliated with QuantKiosk, D.E. Shaw, Citadel or Yahoo.
 
 ## Contributing
 

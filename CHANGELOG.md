@@ -4,6 +4,12 @@ All notable changes are listed here, newest first. The format follows [Keep a Ch
 
 ## [0.1.0] - 2026-11-23
 
+### Changed
+- Top-level README: runs-without-a-key column, CI badge, usage for every study
+- Pairs study: README rewritten with a Limits section; `holdout_check.py` splits the Sharpe ratio into training and held-out periods
+- Pod divergence and common ownership READMEs: added Limits and Project Structure sections
+- Citation abstract and contributing guide cover all six studies
+
 ### Added
 - Citadel Lag Backtest study: same-date benchmark, aligned factor regressions, decay-curve tests, figures
 - Deadline Filers study: filing lag against position turnover for five funds, scripts, results and figures
