@@ -1,0 +1,4 @@
+leg,cum_strategy,cum_spy_same_dates,mean_quarterly_gap,t_stat,p_value,n_quarters
+Full alpha (quarter-end to next quarter-end),2.18261,2.33419,-0.00321,-0.52455,0.60596,20
+Leakage (quarter-end to filing day),2.12358,2.20624,-0.00168,-0.3635,0.72024,20
+Lagged clone (filing day to next quarter-end),1.04038,1.04565,-0.00019,-0.04478,0.96475,20

@@ -1,0 +1,8 @@
+"firm","n_quarters","mean_lag","median_lag","min_lag","max_lag","n_at_45","n_over_45","n_amendment_quarters","orig_n_quarters","orig_mean_lag","orig_median_lag","orig_min_lag","orig_max_lag","orig_n_at_45","orig_n_over_45"
+"balyasny",21,46.2,45,43,62,12,8,1,20,45.5,45,43,47,12,7
+"blackrock",21,41.2,42,31,54,2,1,1,20,40.6,42,31,45,2,0
+"citadel",21,51.2,45,45,162,14,7,2,19,45.4,45,45,47,14,5
+"millennium",21,45.5,45,44,47,13,7,0,21,45.5,45,44,47,13,7
+"pershing",21,48.2,45,23,106,11,8,2,19,44.3,45,23,47,11,6
+"statestreet",21,53.8,45,41,135,11,9,3,18,45.2,45,41,47,11,6
+"twosigma",21,45.5,45,45,47,14,7,0,21,45.5,45,45,47,14,7

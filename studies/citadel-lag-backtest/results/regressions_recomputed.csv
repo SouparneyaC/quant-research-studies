@@ -1,0 +1,31 @@
+series,alignment,term,estimate,std_error,p_value,r_squared,n_quarters
+Full alpha (net of RF),as saved,alpha,0.04061,0.01988,0.05909,0.29328,20
+Full alpha (net of RF),as saved,Mkt_RF,-0.08569,0.21611,0.69731,0.29328,20
+Full alpha (net of RF),as saved,SMB,0.80182,0.48005,0.11559,0.29328,20
+Full alpha (net of RF),as saved,HML,-0.38849,0.19634,0.06651,0.29328,20
+Full alpha (net of RF),as saved,UMD,0.34364,0.32651,0.30924,0.29328,20
+Lagged clone (net of RF),as saved,alpha,-0.00315,0.01474,0.83374,0.22038,20
+Lagged clone (net of RF),as saved,Mkt_RF,0.06098,0.1602,0.70882,0.22038,20
+Lagged clone (net of RF),as saved,SMB,-0.33979,0.35585,0.35479,0.22038,20
+Lagged clone (net of RF),as saved,HML,-0.22347,0.14554,0.14548,0.22038,20
+Lagged clone (net of RF),as saved,UMD,-0.29221,0.24203,0.24601,0.22038,20
+Gap (full minus clone),as saved,alpha,0.04376,0.01092,0.00114,0.60316,20
+Gap (full minus clone),as saved,Mkt_RF,-0.14667,0.11868,0.23553,0.60316,20
+Gap (full minus clone),as saved,SMB,1.14161,0.26363,0.00059,0.60316,20
+Gap (full minus clone),as saved,HML,-0.16502,0.10782,0.14671,0.60316,20
+Gap (full minus clone),as saved,UMD,0.63585,0.17931,0.00293,0.60316,20
+Full alpha (net of RF),factors aligned to the return quarter,alpha,-0.00404,0.00482,0.41655,0.96988,19
+Full alpha (net of RF),factors aligned to the return quarter,Mkt_RF,0.95655,0.05544,0.0,0.96988,19
+Full alpha (net of RF),factors aligned to the return quarter,SMB,0.24176,0.10375,0.03527,0.96988,19
+Full alpha (net of RF),factors aligned to the return quarter,HML,0.13623,0.05293,0.02208,0.96988,19
+Full alpha (net of RF),factors aligned to the return quarter,UMD,0.03746,0.07021,0.60206,0.96988,19
+Lagged clone (net of RF),factors aligned to the return quarter,alpha,-0.02758,0.01221,0.04044,0.59532,19
+Lagged clone (net of RF),factors aligned to the return quarter,Mkt_RF,0.59494,0.14045,0.00083,0.59532,19
+Lagged clone (net of RF),factors aligned to the return quarter,SMB,-0.00724,0.26283,0.97842,0.59532,19
+Lagged clone (net of RF),factors aligned to the return quarter,HML,0.20092,0.13409,0.15625,0.59532,19
+Lagged clone (net of RF),factors aligned to the return quarter,UMD,0.08987,0.17787,0.62124,0.59532,19
+Gap (full minus clone),factors aligned to the return quarter,alpha,0.02354,0.01532,0.14659,0.45306,19
+Gap (full minus clone),factors aligned to the return quarter,Mkt_RF,0.3616,0.17614,0.05926,0.45306,19
+Gap (full minus clone),factors aligned to the return quarter,SMB,0.24899,0.32961,0.46252,0.45306,19
+Gap (full minus clone),factors aligned to the return quarter,HML,-0.06469,0.16816,0.70626,0.45306,19
+Gap (full minus clone),factors aligned to the return quarter,UMD,-0.05241,0.22306,0.81764,0.45306,19

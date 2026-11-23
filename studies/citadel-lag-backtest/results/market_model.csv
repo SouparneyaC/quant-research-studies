@@ -1,0 +1,4 @@
+leg,alpha_per_quarter,alpha_p_value,beta,r_squared,n_quarters
+Full alpha (quarter-end to next quarter-end),-0.00307,0.67834,0.997,0.89821,20
+Leakage (quarter-end to filing day),-0.00341,0.56586,1.04125,0.89982,20
+Lagged clone (filing day to next quarter-end),-0.00012,0.97802,0.98315,0.90717,20

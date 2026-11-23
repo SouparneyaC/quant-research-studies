@@ -5,6 +5,7 @@ All notable changes are listed here, newest first. The format follows [Keep a Ch
 ## [0.1.0] - 2026-11-23
 
 ### Added
+- Citadel Lag Backtest study: same-date benchmark, aligned factor regressions, decay-curve tests, figures
 - Deadline Filers study: filing lag against position turnover for five funds, scripts, results and figures
 - 13F Amendments study: event study, robustness checks, corrected Goodman-Bacon decomposition, results and figures
 - Common Ownership study: pipeline, 112,800-row kappa panel, data-quality and entity-resolution write-ups
