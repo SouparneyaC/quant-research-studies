@@ -1,0 +1,25 @@
+# secrets
+.env
+.Renviron
+*.env
+*.pem
+*.key
+secrets.json
+
+# python and R
+venv/
+.venv/
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+.Rproj.user/
+
+# vendor data and generated output
+*.rds
+data/raw/
+out/
+
+# editor and OS
+.DS_Store
+.obsidian/

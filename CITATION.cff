@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Quant Research Studies"
+type: software
+authors:
+  - family-names: Chakrabarti
+    given-names: Souparneya
+version: 0.1.0
+date-released: "2026-11-23"
+license: MIT
+repository-code: "https://github.com/SouparneyaC/quant-research-studies"
+abstract: "Independent quantitative research on institutional holdings and market prices: hedge-fund pod divergence from 13F filings, and a Kalman-filter pairs trade on country ETFs."
